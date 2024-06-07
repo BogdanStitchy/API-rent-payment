@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from typing import List
-from app.apartments.schemas_apartment import ApartmentRead
 
 
 class HouseBase(BaseModel):
@@ -11,8 +10,12 @@ class HouseCreate(HouseBase):
     pass
 
 
-class HouseRead(HouseBase):
-    id_house: int
+class ApartmentRead(BaseModel):
     id_apartment: int
     number_apartment: int
     area_apartment: float
+
+
+class HouseRead(HouseBase):
+    id_house: int
+    apartments: List[ApartmentRead]
