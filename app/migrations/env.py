@@ -14,6 +14,7 @@ from app.apartments.model_apartment import Apartment  # noqa
 from app.tariffs.model_tariff import Tariff  # noqa
 from app.houses.model_house import House  # noqa
 from app.water_meters.model_water_meter import WaterMeter, WaterReading  # noqa
+from app.rent_payment.model_rent_payment import RentPayment  # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
