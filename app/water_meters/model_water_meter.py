@@ -7,9 +7,8 @@ class WaterMeter(Base):
     __tablename__ = "water_meters"
     id = Column(Integer, primary_key=True, index=True)
     apartment_id = Column(Integer, ForeignKey("apartments.id"))
-    readings = relationship("WaterReading", back_populates="water_meter")
 
-    apartment = relationship("Apartment", back_populates="water_meters")
+    readings = relationship("WaterReading", back_populates="water_meter")
 
 
 class WaterReading(Base):
