@@ -27,13 +27,3 @@ async def add_process_time_header(request: Request, call_next):
 @app.on_event("startup")
 async def startup():
     redis = await aioredis.from_url(f"redis://{HOST_REDIS}", encoding="utf8", decode_responses=True)
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
