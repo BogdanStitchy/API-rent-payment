@@ -9,7 +9,7 @@ router = APIRouter(
 )
 
 
-@router.post("/houses")
+@router.post("/add")
 async def add_house(house: HouseCreate):
     adding_status = await HouseDAO.add(address=house.address)
     if "error" in adding_status:
@@ -26,3 +26,12 @@ async def get_one_house(house_id: int) -> HouseRead:
 
     return db_house
 
+
+@router.get("/")
+async def get_houses():
+    db_houses = await HouseDAO.get_all()
+    if isinstance(db_houses, dict):
+        if "error" in db_houses:
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    return db_houses
