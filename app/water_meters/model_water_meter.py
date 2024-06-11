@@ -9,6 +9,7 @@ class WaterMeter(Base):
     apartment_id = Column(Integer, ForeignKey("apartments.id"))
 
     readings = relationship("WaterReading", back_populates="water_meter")
+    apartment = relationship("Apartment", back_populates="water_meters")
 
 
 class WaterReading(Base):

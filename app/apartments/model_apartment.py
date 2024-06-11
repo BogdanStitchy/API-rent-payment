@@ -11,4 +11,5 @@ class Apartment(Base):
     house_id = Column(Integer, ForeignKey("houses.id"))
 
     house = relationship("House", back_populates="apartments")
+    water_meters = relationship("WaterMeter", back_populates="apartment")
 
