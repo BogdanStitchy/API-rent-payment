@@ -12,4 +12,5 @@ class Apartment(Base):
 
     house = relationship("House", back_populates="apartments")
     water_meters = relationship("WaterMeter", back_populates="apartment")
+    rent = relationship("RentPayment", back_populates="apartment")
 

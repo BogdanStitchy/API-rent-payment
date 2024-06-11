@@ -10,7 +10,7 @@ class RentPayment(Base):
     apartment_id = Column(Integer, ForeignKey('apartments.id'), nullable=False)
     amount_due = Column(Float, nullable=False)
 
-    apartment = relationship("Apartment", back_populates="kvartplata")
+    apartment = relationship("Apartment", back_populates="rent")
 
     __table_args__ = (UniqueConstraint('period', 'apartment_id', name='_period_apartment_uc'),)
 
