@@ -1,6 +1,5 @@
 from datetime import date
 from fastapi import APIRouter, HTTPException
-from celery.result import AsyncResult
 from typing import List
 
 from app.rent_payment.dao_rent_payment import RentPaymentDAO
@@ -20,12 +19,6 @@ async def calculate_rent(house_id: int, selected_date: date):
         return {"message": "Rent calculation started", "task_id": task.id}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred")
-
-
-@router.get("/task_status/{task_id}")
-def get_task_status(task_id: str):
-    task = AsyncResult(task_id)
-    return {"task_id": task.id, "status": task.status, "result": task.result}
 
 
 @router.get("/apart/{apart_id}")
